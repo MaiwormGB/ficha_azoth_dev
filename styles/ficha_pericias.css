@@ -1,0 +1,98 @@
+#titulo_pericias{
+
+    color: #d7f3fa;
+
+}
+
+#titulo_pericias svg{
+
+    fill: #d7f3fa;
+
+}
+
+
+#pericias{
+
+    display: flex;
+
+}
+
+.pericias_max{
+
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#limite_pericias{
+
+    color: var(--cor2_pericias);
+
+}
+
+#limite_pericias_bar{
+
+    width: 100%;
+    height: 5px;
+    background-color: var(--cor2_pericias);
+    border-radius: 5px;
+
+}
+
+#pericias_lista{
+
+    width: 70%;
+    height: 70%;
+    border-bottom: 5px solid var(--cor2_pericias);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to left,
+    #1f151571,
+    #1f151500);
+    align-items: center;
+    padding: 20px 0px;
+    overflow-y: scroll;
+    gap: 20px;
+
+}
+
+.pericia{
+
+    width: 80%;
+    height: 10%;
+    display: flex;
+    background-color: var(--cor2_pericias);
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: #507879 solid 5px;
+
+
+}
+
+.texto_pericia, .bonus_pericia{
+
+    color: #507879;
+    font-size: 18pt;
+    padding: 5px;
+
+
+}
+
+.texto_pericia{
+
+    border-bottom: #507879 dotted 3px;
+
+}
+
+.bonus_pericia{
+
+    font-size: 25pt;
+    border: 3px solid #507879;
+    border-radius: 5px;
+
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICHA BRUTA</title>
+    <link rel="icon" href="../acervo/Azoth_simbolo.png">
+    <link rel="stylesheet" href="ficha_bruta.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>INPUTS</h1>
+
+        <button onclick="atualizarCacador()">ATUALIZAR</button>
+
+        <div class="status">
+
+            <input type="text" placeholder="Nome" id="novoNome">
+            <input type="text" placeholder="Jogador" id="novoJogador">
+
+            <div class="estirpe">
+
+                <h2>estirpe</h2>
+
+            </div>
+
+            <div class="pv">
+
+                <h2>pv</h2>
+
+                <input type="number" placeholder="pvf" id="novoPvf">
+                <input type="number" placeholder="pvMult" id="novoPvMult">
+                <input type="number" placeholder="pvtModp" id="novoPvtModp">
+                <input type="number" placeholder="pvtModn" id="novoPvtModn">
+
+            </div>
+
+            <div class="atrib">
+
+                <h2>atributos</h2>
+
+                <input type="number" placeholder="Força" id="novoForca">
+                <input type="number" placeholder="Agilidade" id="novoAgilidade">
+                <input type="number" placeholder="Intelecto" id="novoIntelecto">
+                <input type="number" placeholder="Presença" id="novoPresenca">
+                <input type="number" placeholder="Vigor" id="novoVigor">
+
+            </div>
+            
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <h1>VISUALIZAÇÃO</h1>
+
+        <h2 id="nome">NOME</h2>
+        <h2 id="jogador">JOGADOR</h2>
+        <h2 id="estirpe">ESTIRPE</h2>
+        <h2 id="pv">PV</h2>
+        <h2 id="san">SAN</h2>
+        <h2 id="pe">PE</h2>
+
+    </div>
+
+    <script src="ficha_bruta.js"></script>
+
+</body>
+</html>

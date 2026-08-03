@@ -1,0 +1,205 @@
+{
+    "estirpes": [
+        {
+        
+            "id": "lodaceiro",
+            "nome": "Lodaceiro",
+            "descricao": "",
+
+            "tracos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ],
+
+            "defeitos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ]
+
+        },
+
+        {
+        
+            "id": "forjeiro",
+            "nome": "Forjeiro",
+            "descricao": "",
+
+            "tracos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ],
+
+            "defeitos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ]
+
+        },
+
+        {
+        
+            "id": "ventaneiro",
+            "nome": "Ventaneiro",
+            "descricao": "",
+
+            "tracos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ],
+
+            "defeitos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ]
+
+        },
+
+        {
+        
+            "id": "corredeiro",
+            "nome": "Corredeiro",
+            "descricao": "",
+
+            "tracos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ],
+
+            "defeitos":[
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                },
+                {
+                    "nome": "",
+                    "descricao": ""
+
+                }
+
+            ]
+
+        }
+
+    ]
+
+}

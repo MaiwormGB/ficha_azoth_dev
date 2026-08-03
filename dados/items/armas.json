@@ -1,0 +1,75 @@
+[
+    {
+        "id": "esfola_pestes",
+        "nome": "Esfola Pestes",
+        "modos": [
+
+            {
+                "nome": "Gadanho",
+                "arquetipo": "gadanho", 
+                "tiposDano":["corte","perfuracao","impacto","termico"],
+                "dano": "3d6"
+            },
+
+            {
+                "nome": "Lança",
+                "arquetipo": "lanca", 
+                "tiposDano":["perfuracao","corte","impacto","termico"],
+                "dano": "2d8"
+            }
+
+        ],
+        "modificadores": ["carburador_disel"],
+        "municao": 4,
+        "descricao":["Uma relíquia de uma nação que não existe mais, tão comum em seu tempo que seu nome oficial se perdeu. O único nome que lhe restou foi o adjetivo hiperbólico utilizado para se referir a mesma em um anúncio encontrado na modernidade.",
+                    "A arma tem dois modos: Gadanho e Lança, que podem ser alterados através de uma manivela próxima de sua lâmina. Acoplado a arma reside um potente lança chamas movido a óleo vegetal, mais poderoso do que qualquer ferramenta agrícola poderia necessitar."]
+
+    },
+
+    {
+        "id": "arpao_mecanico",
+        "nome": "Arpão mecânico",
+        "arquetipo": "arpao", 
+        "tiposDano":["perfuracao","impacto"],
+        "dano": "2d8",
+        "municao": 1,
+        "modificadores":[],
+        "descricao":["Uma ferramenta de pesca convencional, em uma versão menor e mais portatil que sua contraparte montada no casco de navios. Considerada uma arma 'Sem classe' por muitos, até a atualidade uma unica linha de Arpões de alta qualidade foi feita, sendo descontinuada quase que imediatamente.",
+                    "Sua simplicidade a torna uma preferida no quesito modificações caseiras."]
+    },
+
+    {
+        "id": "cano_sebo",
+        "nome": "Cano de sebo",
+        "modos": [
+
+            {
+                "nome": "Corrente",
+                "arquetipo": "corrente", 
+                "tiposDano":["impacto"],
+                "dano": "1d8"
+            },
+
+            {
+                "nome": "Gêmeas",
+                "arquetipo": "gemeas", 
+                "tiposDano":["corte","perfuracao"],
+                "dano": "2d6"
+            },
+
+            {
+                "nome": "Martelo",
+                "arquetipo": "martelo", 
+                "tiposDano":["impacto"],
+                "dano": "2d12"
+            }
+
+        ],
+        "municao": 0,
+        "modificadores":[],
+        "descricao":["Um conjunto de canos metalicos de tamanhos progressivamente menores, banhados em uma mistura oleosa de gracha, gordura e FLM (Fluido Lubrificante Marcado), estraido de alguma criatura de Ambição.",
+                     "A arma possui três formas: Corrente, Gêmeas e Martelo, que podem ser alteradas entre si a partir da vontade do portador"]
+
+    }
+
+]

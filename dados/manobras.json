@@ -1,0 +1,257 @@
+[
+
+    {
+        "id": "corte_leve",
+        "nome": "Corte Leve",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+        
+        "custoFervor": 2,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 4,
+        
+        "descricao": "Você realiza um corte com {ARMA} em seu alvo, causando {DADOS + For} em forma de dano de Corte. Em caso de crítico, você tenta aplicar Hemorragia Localizada no alvo."
+
+    },
+    {
+        "id": "corte_ponderado",
+        "nome": "Corte Ponderado",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 3,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 3,
+
+        "descricao": "Você realiza um corte com {ARMA} em seu alvo, causando {DADOS + For} em forma de dano de Corte. Em caso de crítico, você tenta aplicar Hemorragia Localizada no alvo."
+    },
+    {
+        "id": "corte_bruto",
+        "nome": "Corte Bruto",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 4,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 2,
+
+        "descricao": "Você realiza um corte com {ARMA} em seu alvo, causando {DADOS + For} em forma de dano de Corte. Em caso de crítico, você tenta aplicar Hemorragia Localizada no alvo."
+    },
+    {
+        "id": "pancada_leve",
+        "nome": "Pancada Leve",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 2,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 4,
+
+        "descricao": "Você utiliza {ARMA} para bater em seu alvo, causando {DADOS + For} em forma de dano de Impacto. Em caso de crítico, você tenta aplicar Contusão em uma parte do alvo."
+    },
+    {
+        "id": "pancada_ponderada",
+        "nome": "Pancada Ponderada",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 3,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 3,
+
+        "descricao": "Você utiliza {ARMA} para bater em seu alvo, causando {DADOS + For} em forma de dano de Impacto. Em caso de crítico, você tenta aplicar Contusão ou Fratura (1d2) em uma parte do alvo."
+    },
+    {
+        "id": "pancada_bruta",
+        "nome": "Pancada Bruta",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 4,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 2,
+
+        "descricao": "Você utiliza {ARMA} para bater em seu alvo, causando {DADOS + For} em forma de dano de Impacto. Em caso de crítico, você tenta aplicar Fratura em uma parte do alvo."
+    },
+    {
+        "id": "coronhada_leve",
+        "nome": "Coronhada Leve",
+        "tipo": "Adjacente",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 2,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 1,
+
+        "descricao": "Você utiliza o cabo (ou corpo, no caso de uma arma de disparo) de {ARMA} para bater no alvo, causando {1d4 x For + For} de dano de Impacto e acrescentando +1 de FERVOR e +2 no próximo teste de ataque realizado na mesma rodada. Em caso de crítico, o bônus concedido aumenta para +5."
+    },
+    {
+        "id": "coronhada_ponderada",
+        "nome": "Coronhada Ponderada",
+        "tipo": "Adjacente",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 2,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 1,
+
+        "descricao": "Você utiliza o cabo (ou corpo, no caso de uma arma de disparo) de {ARMA} para bater no alvo, causando {1d6 x For + For} de dano de Impacto e acrescentando +1 de FERVOR e +2 no próximo teste de ataque realizado na mesma rodada. Em caso de crítico, o bônus concedido aumenta para +5."
+    },
+    {
+        "id": "coronhada_bruta",
+        "nome": "Coronhada Bruta",
+        "tipo": "Adjacente",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 2,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 1,
+
+        "descricao": "Você utiliza o cabo (ou corpo, no caso de uma arma de disparo) de {ARMA} para bater no alvo, causando {1d8 x For + For} de dano de Impacto e acrescentando +1 de FERVOR e +2 no próximo teste de ataque realizado na mesma rodada. Em caso de crítico, o bônus concedido aumenta para +5."
+    },
+    {
+        "id": "estocada_leve",
+        "nome": "Estocada Leve",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 2,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 4,
+
+        "descricao": "Você utiliza a lamina de {ARMA} para perfurar seu alvo, causando {DADOS + For} de dano de Perfuração. Em caso de crítico, você tenta aplicar Hemorragia Estrelada no alvo."
+    },
+    {
+        "id": "estocada_ponderada",
+        "nome": "Estocada Ponderada",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 3,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 3,
+
+        "descricao": "Você utiliza a lamina de {ARMA} para perfurar seu alvo, causando {DADOS + For} de dano de Perfuração. Em caso de crítico, você tenta aplicar Hemorragia Estrelada no alvo."
+    },
+    {
+        "id": "estocada_bruta",
+        "nome": "Estocada Bruta",
+        "tipo": "Ataque",
+        "pericia": "Luta",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 4,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 2,
+
+        "descricao": "Você utiliza a lamina de {ARMA} para perfurar seu alvo, causando {DADOS + For} de dano de Perfuração. Em caso de crítico, você tenta aplicar Hemorragia Estrelada no alvo."
+    },
+    {
+        "id": "arremesso_dinamico",
+        "nome": "Arremesso Dinâmico",
+        "tipo": "Ataque",
+        "pericia": "Pontaria",
+        "alcance": "Curto (9m)",
+
+        "custoFervor": 3,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 3,
+
+        "descricao": "Diferente do comum, você pode utilizar Força nesse ataque ao invés de Agilidade. Você arremessa {ARMA} em um alvo, causando {DADOS + Agi} de dano de {TIPO}. Por ser uma arma especializada em arremesso, você pode utilizar esta manobra múltiplas vezes caso possua armas iguais em seu inventário. Modificadores e efeitos temporários da arma sendo utilizada serão considerados em cada ataque individual. Em caso de crítico, você tenta aplicar {STATUS} no alvo."
+    },
+    {
+        "id": "arremesso_improvisado",
+        "nome": "Arremesso Improvisado",
+        "tipo": "Ataque",
+        "pericia": "Pontaria",
+        "alcance": "Curto (9m)",
+
+        "custoFervor": 4,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 2,
+
+        "descricao": "Diferente do comum, você pode utilizar Força nesse ataque ao invés de Agilidade. Você arremessa {ARMA} em um alvo, causando {DADOS + For} de dano de {TIPO}. Por ser uma arma não especializada em arremesso, a força necessária para jogar a mesma ignora 5 de resistência para tal ataque. Em caso de crítico, você tenta aplicar {STATUS} no alvo."
+    },
+    {
+        "id": "arremesso_de_orgulho",
+        "nome": "Arremesso de Orgulho",
+        "tipo": "Ataque",
+        "pericia": "Pontaria",
+        "alcance": "Curto (9m)",
+
+        "custoFervor": 5,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 1,
+
+        "descricao": "Diferente do comum, você pode utilizar Força nesse ataque ao invés de Agilidade. Você arremessa {ARMA} em um alvo, causando {DADOS + (For x2)} de dano de {TIPO}. Por ser uma arma extremamente pesada e não especializada em arremesso, a força necessária para jogar a mesma ignora 10 de resistência para tal ataque. Em caso de crítico, você tenta aplicar {STATUS} no alvo."
+    },
+    {
+        "id": "golpe_debilitante_medicina",
+        "nome": "Golpe Debilitante (Medicina)",
+        "tipo": "Adjacente",
+        "pericia": "Medicina",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 6,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 1,
+
+        "descricao": "O Atributo básico usado pelo ataque é Força. Você atinge seu alvo em um ponto fraco de seu corpo, debilitando seus movimentos de alguma forma com base na parte do corpo acertada. Cada parte do corpo do alvo possui uma DT própria com base na defesa original do alvo, com efeitos externos podendo aumentar ou diminuir essa DT a critério do mestre. Essa manobra não pode ser utilizada em criaturas marcadas ou animais mundanos. Caso o ser cure o dano causado pelo ataque, se livra da condição. Em caso de crítico, a condição aplicada não pode ser removida até o final da cena. PERNA (+2): {DADOS}. Seus ataques custam -1 Fervor contra o alvo pelo resto da cena. Em caso de crítico, você recebe +2 em todo teste de ataque que fizer contra o alvo naquela rodada. BRAÇO (+2): {DADOS}. Os ataques do alvo custam +1 Fervor até o final da cena. Em caso de crítico, seu alvo se torna incapaz de utilizar uma de suas manobras de combate. MÃO (+5): {DADOS - 1d}. Seu alvo solta aquilo que está segurando e recebe -1d20 em testes de Ataque. Em caso de crítico, arranca a mão do alvo, aplicando Amputação (Braço). CABEÇA (+7): {DADOS x2}. Caso esse ataque cause dano massivo contra o alvo, o mesmo deve fazer um teste de Fortitude. Em caso de falha, o mesmo é decapitado."
+    },
+    {
+        "id": "golpe_debilitante_sobrevivencia",
+        "nome": "Golpe Debilitante (Sobrevivência)",
+        "tipo": "Adjacente",
+        "pericia": "Sobrevivência",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 6,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 1,
+
+        "descricao": "O Atributo básico usado pelo ataque é Força. Você atinge seu alvo em um ponto fraco de seu corpo, debilitando seus movimentos de alguma forma com base na parte do corpo acertada. Cada parte do corpo do alvo possui uma DT própria com base na defesa original do alvo, com efeitos externos podendo aumentar ou diminuir essa DT a critério do mestre. Essa manobra não pode ser utilizada em criaturas marcadas ou em seres humanos. Caso o ser cure o dano causado pelo ataque, se livra da condição. Em caso de crítico, a condição aplicada não pode ser removida até o final da cena. PERNA (+2): {DADOS}. Seus ataques custam -1 Fervor contra o alvo pelo resto da cena. Em caso de crítico, você recebe +2 em todo teste de ataque que fizer contra o alvo naquela rodada. BRAÇO (+2): {DADOS}. Os ataques do alvo custam +1 Fervor até o final da cena. Em caso de crítico, seu alvo se torna incapaz de utilizar uma de suas manobras de combate. MÃO (+5): {DADOS - 1d}. Seu alvo solta aquilo que está segurando e recebe -1d20 em testes de Ataque. Em caso de crítico, arranca a mão do alvo, aplicando Amputação (Braço). CABEÇA (+7): {DADOS x2}. Caso esse ataque cause dano massivo contra o alvo, o mesmo deve fazer um teste de Fortitude. Em caso de falha, o mesmo é decapitado."
+    },
+    {
+        "id": "golpe_debilitante_infeccao",
+        "nome": "Golpe Debilitante (Infecção)",
+        "tipo": "Adjacente",
+        "pericia": "Infecção",
+        "alcance": "Corpo a corpo 1,5m",
+
+        "custoFervor": 6,
+        "custoPe": 0,
+        "integridade": 0,
+        "usos": 1,
+
+        "descricao": "O Atributo básico usado pelo ataque é Força. Você atinge seu alvo em um ponto fraco de seu corpo, debilitando seus movimentos de alguma forma com base na parte do corpo acertada. Cada parte do corpo do alvo possui uma DT própria com base na defesa original do alvo, com efeitos externos podendo aumentar ou diminuir essa DT a critério do mestre. Essa manobra não pode ser utilizada em seres humanos ou animais mundanos. Caso o ser cure o dano causado pelo ataque, se livra da condição. Em caso de crítico, a condição aplicada não pode ser removida até o final da cena. PERNA (+2): {DADOS}. Seus ataques custam -1 Fervor contra o alvo pelo resto da cena. Em caso de crítico, você recebe +2 em todo teste de ataque que fizer contra o alvo naquela rodada. BRAÇO (+2): {DADOS}. Os ataques do alvo custam +1 Fervor até o final da cena. Em caso de crítico, seu alvo se torna incapaz de utilizar uma de suas manobras de combate. MÃO (+5): {DADOS - 1d}. Seu alvo solta aquilo que está segurando e recebe -1d20 em testes de Ataque. Em caso de crítico, arranca a mão do alvo, aplicando Amputação (Braço). CABEÇA (+7): {DADOS x2}. Caso esse ataque cause dano massivo contra o alvo, o mesmo deve fazer um teste de Fortitude. Em caso de falha, o mesmo é decapitado."
+    }
+
+]
