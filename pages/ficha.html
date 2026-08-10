@@ -664,7 +664,7 @@
 
                 <h1>INVENTARIO</h1>
 
-                <div class="editBtn"  onclick="menu.abrirOverlay(8,'menu_inventario')"">
+                <div class="editBtn"  onclick="menu.abrirOverlay(8,'menu_inventario')">
 
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000"
                     preserveAspectRatio="xMidYMid meet">
@@ -731,6 +731,8 @@
                 </div>
 
             </div>
+
+            <button onclick="menu.abrirOverlay(9,'menu_inventario_adicionar')" >ADICIONAR ITEM</button>
 
         </div>
 
@@ -1096,6 +1098,49 @@
                     </button>
 
                 </div>
+
+        </div>
+
+
+        <div class="menu menu_form" id="menu_inventario_adicionar">
+
+            <div class="menu_buttons">
+
+                <button id="novoArma" title="Nova Arma">AR</button>
+                <button id="novoAmuleto" title="Novo Amuleto">AM</Button>
+                <button id="novoProtecao" title="Nova Proteção">PR</button>
+                <button id="novoMochila" title="Nova Mochila">MO</button>
+                <button id="novoRecipiente" title="Novo Recipiente">RE</button>
+                <button id="novoFerramenta" title="Nova Ferramenta">FE</button>
+                <button id="novoSuprimento" title="Novo Suprimento">SU</button>
+                <button id="novoVariado" title="Novo Item Variado">VA</button>
+
+            </div>
+
+            <div id="menu_adicionar_container">
+
+                <h1 id="menu_adicionar_titulo">NOVA ARMA</h1>
+
+                <div id="menu_adicionar_form">
+
+
+                    <input type="text" placeholder="Nome">
+
+                    <button title="adicionar modo">+</button>
+
+                    <div class="menu_adicionar_modo">
+
+                        <input type="text" placeholder="Arquétipo">
+                        <input type="text" placeholder="Tipos de dano">
+                        <input type="text" placeholder="Dano">
+
+                        <textarea name="Descrição" placeholder="Descrição"></textarea>
+                    
+                    </div>
+
+                </div>
+
+                <button>ADICIONAR ITEM</button>
 
             </div>
 

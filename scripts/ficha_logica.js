@@ -199,6 +199,12 @@ const interface = {
 
         },
 
+    },
+
+    menuInventario:{
+
+        
+
     }
 
 }

@@ -9,3 +9,145 @@
     fill: #d8fad7;
 
 }
+
+#menu_inventario_adicionar{
+
+    justify-content: flex-start;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#menu_inventario_adicionar .menu_buttons{
+
+    height: 10%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+
+#menu_inventario_adicionar .menu_buttons button{
+
+    font-size: 14pt;
+    flex: 1;
+    height: 100%;
+    background-color: #14100e54;
+    border-left: #9e7561 solid 3px;
+    color: #9e7561;
+    transition: 0.2s;
+    border-bottom: #9e7561 solid 3px;
+
+}
+
+#menu_inventario_adicionar .menu_buttons button:hover{
+
+    background-color: #dba99028;
+
+}
+
+#novoVariado{
+
+    border-radius: 0px 30px 30px 0px;
+    border-right: #9e7561 solid 3px;
+
+}
+
+#menu_adicionar_container{
+
+    width: 80%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+}
+
+#menu_adicionar_container h1{
+
+    height: 10%;
+    width: fit-content;
+    background-color: #9e7561;
+    border-radius: 20px;
+    color: #2c211c;
+    text-align: center;
+    align-content: center;
+    padding: 0px 50px;
+
+}
+
+
+
+#menu_adicionar_container button{
+
+    width: 30%;
+    aspect-ratio: 10/5;
+    font-size: 15pt;
+    background-color: #14100e54;
+    border-radius: 30px;
+    border: #9e7561 dotted 3px;
+    color: #9e7561;
+    transition: 0.2s;
+
+}
+
+#menu_adicionar_form{
+
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    overflow-y: scroll;
+    padding-top: 10px;
+
+}
+
+#menu_adicionar_form input{
+
+    width: 55%;
+    font-size: 13pt;
+
+}
+
+#menu_adicionar_container button:hover{
+
+    width: 32%;
+    aspect-ratio: 10/4;
+
+}
+
+#menu_adicionar_form button{
+
+    height: 60px;
+    width: 60px;
+    font-size: 30pt;
+
+}
+
+#menu_adicionar_form button:hover{
+
+    width: 80px;
+
+}
+
+#menu_adicionar_form textarea{
+
+    width: 55%;
+    aspect-ratio: 10/3;
+
+}
+
+.menu_adicionar_modo{
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
