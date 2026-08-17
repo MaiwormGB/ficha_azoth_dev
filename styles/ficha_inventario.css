@@ -15,6 +15,8 @@
     justify-content: flex-start;
     padding-top: 50px;
     padding-bottom: 50px;
+    min-height: none;
+
 }
 
 #menu_inventario_adicionar .menu_buttons{
@@ -23,21 +25,33 @@
     width: 80%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    justify-content: space-between;
+    padding-left: 10px;
+    border-left: 15px double;
+    border-radius: 7px;
 
 }
+
+
 
 #menu_inventario_adicionar .menu_buttons button{
 
     font-size: 14pt;
-    flex: 1;
     height: 100%;
+    width: 11.5%;
     background-color: #14100e54;
     border-left: #9e7561 solid 3px;
     color: #9e7561;
     transition: 0.2s;
     border-bottom: #9e7561 solid 3px;
+    border-radius: 10px;
+    outline: none;
+
+}
+
+#novoVariadoBtn {
+
+    border-radius: 10px 30px 30px 10px !important;
 
 }
 
@@ -47,10 +61,9 @@
 
 }
 
-#novoVariado{
+#menu_adicionar_titulo{
 
-    border-radius: 0px 30px 30px 0px;
-    border-right: #9e7561 solid 3px;
+    text-transform: uppercase;
 
 }
 
@@ -58,6 +71,7 @@
 
     width: 80%;
     flex: 1;
+    max-height: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,7 +82,7 @@
 
 #menu_adicionar_container h1{
 
-    height: 10%;
+    min-height: 50px;
     width: fit-content;
     background-color: #9e7561;
     border-radius: 20px;
@@ -79,12 +93,10 @@
 
 }
 
-
-
-#menu_adicionar_container button{
+#adicionar_item_btn{
 
     width: 30%;
-    aspect-ratio: 10/5;
+    aspect-ratio: 10/3;
     font-size: 15pt;
     background-color: #14100e54;
     border-radius: 30px;
@@ -94,51 +106,158 @@
 
 }
 
-#menu_adicionar_form{
+#adicionar_item_btn:hover{
+
+    transform: scale(1.1);
+
+}
+
+.menu_adicionar_form{
 
     width: 100%;
     flex: 1;
+    max-height: 450px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    overflow-y: scroll;
+    gap: 20px;
+    overflow-y: auto;
     padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
-#menu_adicionar_form input{
+.menu_adicionar_form input{
 
     width: 55%;
+    min-width: 300px;
     font-size: 13pt;
+    text-align: center;
+    border-bottom: #9e7561 5px dotted;
+    background-color: #14100e54;
+    padding: 5px;
+    border-radius: 15px;
+    color: #9e7561;
+    outline: none;
+    transition: 0.2s;
 
 }
 
-#menu_adicionar_container button:hover{
+.menu_adicionar_form input[type="number"]{
+
+    max-width: 20%;
+    min-width: 120px;
+    min-height: 50px;
+    font-size: 15pt;
+
+}
+
+.menu_adicionar_form input:hover{
+
+    transform: scale(1.05);
+    font-size: 16pt;
+
+}
+
+.menu_adicionar_form input:focus{
+
+    transform: scale(1.05);
+    font-size: 16pt;
+
+}
+
+.menu_adicionar_form input::placeholder{
+
+    color: #3d3429;
+
+}
+
+.menu_adicionar_container button:hover{
 
     width: 32%;
     aspect-ratio: 10/4;
 
 }
 
-#menu_adicionar_form button{
+.menu_adicionar_form button{
 
     height: 60px;
     width: 60px;
+    background-color: #14100e54;
+    border-radius: 30px;
+    border: #9e7561 dotted 3px;
+    color: #9e7561;
+    transition: 0.2s;
     font-size: 30pt;
 
 }
 
-#menu_adicionar_form button:hover{
+.menu_adicionar_form button:hover{
 
-    width: 80px;
+    transform: scale(1.2);
 
 }
 
-#menu_adicionar_form textarea{
+.menu_adicionar_form textarea{
 
     width: 55%;
-    aspect-ratio: 10/3;
+    min-height: 100px;
+    flex: 1;
+    max-height: 250px;
+    resize: none;
+    font-size: 13pt;
+    border-bottom: #9e7561 5px dotted;
+    background-color: #14100e54;
+    padding: 10px;
+    border-radius: 15px;
+    color: #9e7561;
+    outline: none;
+    transition: 0.2s;
+
+}
+
+.menu_adicionar_form textarea:hover{
+
+    transform: scale(1.05);
+
+}
+
+.menu_adicionar_form textarea:focus{
+
+    transform: scale(1.05);
+
+}
+
+
+.menu_adicionar_form textarea::placeholder{
+
+    color: #3d3429;
+
+}
+
+.menu_adicionar_form_label{
+
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+.menu_adicionar_form_div{
+
+    width: 55%;
+    height: 5px;
+    border: 3px solid #362a24;
+    border-radius: 20px;
+
+}
+
+.menu_adicionar_form_label h2{
+
+    font-size: 20pt;
 
 }
 

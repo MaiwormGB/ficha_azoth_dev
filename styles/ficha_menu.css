@@ -30,6 +30,26 @@
     transform-origin: center;
     opacity: 1;
     align-items: center;
+    min-width: 600px;
+    min-height: 300px;
+
+}
+
+.menu input{
+
+    transition: 0.2s;
+
+}
+
+.menu_editar_container input{
+
+    border-radius: 10px;
+
+}
+
+.menu input:hover{
+
+    transform: scale(1.1);
 
 }
 
@@ -159,6 +179,13 @@ input[type="number"]::-webkit-outer-spin-button{
     color: #9e7561;
     width: fit-content;
     text-align: center;
+    transition: 0.2s;
+
+}
+
+.menu_dano_container select:hover{
+
+    transform: scale(1.1);
 
 }
 

@@ -203,7 +203,33 @@ const interface = {
 
     menuInventario:{
 
-        
+        botoes:{
+
+            arma: document.getElementById("novoArmaBtn"),
+            amuleto: document.getElementById("novoAmuletoBtn"),
+            protecao: document.getElementById("novoProtecaoBtn"),
+            mochila: document.getElementById("novoMochilaBtn"),
+            recipiente: document.getElementById("novoRecipienteBtn"),
+            ferramenta: document.getElementById("novoFerramentaBtn"),
+            suprimento: document.getElementById("novoSuprimentoBtn"),
+            variado: document.getElementById("novoVariadoBtn")
+
+        },
+
+        forms:{
+
+            arma: document.getElementById("novoArmaForm"),
+            amuleto: document.getElementById("novoAmuletoForm"),
+            protecao: document.getElementById("novoProtecaoForm"),
+            mochila: document.getElementById("novoMochilaForm"),
+            recipiente: document.getElementById("novoRecipienteForm"),
+            ferramenta: document.getElementById("novoFerramentaForm"),
+            suprimento: document.getElementById("novoSuprimentoForm"),
+            variado: document.getElementById("novoVariadoForm")
+
+        },
+
+        menuAdicionarTitulo: document.getElementById("menu_adicionar_titulo")
 
     }
 
@@ -743,9 +769,32 @@ const menu = {
 
         }
 
+    },
+
+    //MENU INVENTARIO
+
+    mudarAbaInventario(form, titulo){
+
+        abas = document.querySelectorAll(".menu_adicionar_form")
+        const titulos = Object.keys(interface.menuInventario.forms);
+
+        abas.forEach(aba =>{
+
+            aba.style.display = "none";
+
+        });
+
+        form.style.display = "flex";
+
+
+
+        interface.menuInventario.menuAdicionarTitulo.textContent = titulos[titulo];
+
     }
 
 }
+
+menu.mudarAbaInventario(interface.menuInventario.forms.arma, 0)
 
 //EVENTOS
 

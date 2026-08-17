@@ -1106,14 +1106,14 @@
 
             <div class="menu_buttons">
 
-                <button id="novoArma" title="Nova Arma">AR</button>
-                <button id="novoAmuleto" title="Novo Amuleto">AM</Button>
-                <button id="novoProtecao" title="Nova Proteção">PR</button>
-                <button id="novoMochila" title="Nova Mochila">MO</button>
-                <button id="novoRecipiente" title="Novo Recipiente">RE</button>
-                <button id="novoFerramenta" title="Nova Ferramenta">FE</button>
-                <button id="novoSuprimento" title="Novo Suprimento">SU</button>
-                <button id="novoVariado" title="Novo Item Variado">VA</button>
+                <button id="novoArmaBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.arma, 0)" title="Nova Arma">AR</button>
+                <button id="novoAmuletoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.amuleto, 1)"  title="Novo Amuleto">AM</Button>
+                <button id="novoProtecaoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.protecao, 2)" title="Nova Proteção">PR</button>
+                <button id="novoMochilaBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.mochila, 3)" title="Nova Mochila">MO</button>
+                <button id="novoRecipienteBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.recipiente, 4)" title="Novo Recipiente">RE</button>
+                <button id="novoFerramentaBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.ferramenta, 5)" title="Nova Ferramenta">FE</button>
+                <button id="novoSuprimentoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.suprimento, 6)" title="Novo Suprimento">SU</button>
+                <button id="novoVariadoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.variado, 7)" title="Novo Item Variado">VA</button>
 
             </div>
 
@@ -1121,26 +1121,76 @@
 
                 <h1 id="menu_adicionar_titulo">NOVA ARMA</h1>
 
-                <div id="menu_adicionar_form">
-
+                <div class="menu_adicionar_form" id="novoArmaForm">
 
                     <input type="text" placeholder="Nome">
 
-                    <button title="adicionar modo">+</button>
 
-                    <div class="menu_adicionar_modo">
+                    <div class="menu_adicionar_form_label">
 
-                        <input type="text" placeholder="Arquétipo">
-                        <input type="text" placeholder="Tipos de dano">
-                        <input type="text" placeholder="Dano">
+                        <h2>Adicionar modo ||</h2>
 
-                        <textarea name="Descrição" placeholder="Descrição"></textarea>
-                    
+                        <button title="adicionar modo" id="adicionar_modo">+</button>
+    
                     </div>
+
+                    <div class="menu_adicionar_form_div"></div>
+
+
+                    <input type="text" placeholder="Arquétipo">
+                    <input type="text" placeholder="Tipos de dano">
+                    <input type="text" placeholder="Dano">
+
+                    <div class="menu_adicionar_form_div"></div>
+
+                    <textarea name="Descrição" placeholder="Descrição"></textarea>
+                    
+
+
+                    <input type="text" placeholder="Talento conjulgado">
+                    <input type="text" placeholder="Modificador">
 
                 </div>
 
-                <button>ADICIONAR ITEM</button>
+                <div class="menu_adicionar_form" id="novoAmuletoForm">
+
+                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="Tipo">
+
+                    <div class="menu_adicionar_form_div"></div>
+
+                    <input type="text" placeholder="Talento conjulgado">
+                    <textarea name="Descrição" placeholder="Descrição"></textarea>
+
+                    <div class="menu_adicionar_form_div"></div>
+
+                    <input type="number" placeholder="Intgr +">
+                    <input type="number" placeholder="Def +">
+
+                </div>
+
+                <div class="menu_adicionar_form" id="novoProtecaoForm">
+
+                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="Tipo">
+
+                    <textarea name="Descrição" placeholder="Descrição"></textarea>
+
+                    <input type="text" placeholder="Talento conjulgado">
+
+                </div>
+
+                <div class="menu_adicionar_form" id="novoMochilaForm">
+
+                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="Tipo">
+                    <input type="text" placeholder="Talento conjulgado">
+
+                    <textarea name="Descrição" placeholder="Descrição"></textarea>
+
+                </div>
+
+                <button id="adicionar_item_btn" >ADICIONAR ITEM</button>
 
             </div>
 
