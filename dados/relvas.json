@@ -1,0 +1,32 @@
+[
+
+    {
+
+        "id":"",
+        "nome":"",
+        "significados":[],
+        
+        "modos":[
+
+            {
+
+                "nome":"",
+                "execucao":"",
+                "foco": false,
+                "pe": 0,
+                "it": 0,
+                "alcance": 0,
+                "tipos":[],
+                "alvos":[],
+                "descricao":"",
+                "requisitos":{}
+
+            }
+
+        ],
+
+        "requisitos":{}
+
+    }
+
+]

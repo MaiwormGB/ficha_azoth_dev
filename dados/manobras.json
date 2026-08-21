@@ -1,6 +1,29 @@
 [
 
     {
+
+        "id":"",
+        "nome": "",
+        "tipo": "",
+        "pericias":[],
+        "alcances": [],
+        "usos": 0,
+
+        "descricao":"",
+
+        "custos":{
+
+            "fervor": 0,
+            "pe": 0,
+            "it": 0
+
+        },
+
+        "requisitos":{}
+
+    },
+
+    {
         "id": "corte_leve",
         "nome": "Corte Leve",
         "tipo": "Ataque",

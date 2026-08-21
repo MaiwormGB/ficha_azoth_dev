@@ -3,14 +3,20 @@
 
         "id": "",
         "nome": "",
+        "tipo": "",
+        "arquetipos": [],
+        "permanente": false,
+        "pv": 0,
+        "peso": 0,
+        "cargas": 0,
 
-        "defesa": 0,
-        "integridade": 0,
-        "talentos": [],
-        "resistencias": {},
+        "descricao": "",
 
-        "descricao": [],
-        "modficadores": []
+        "talentos":[],
+        "manobras":[],
+        "modos":[],
+        "bonus":{},
+        "requisitos":{} 
 
     }
 

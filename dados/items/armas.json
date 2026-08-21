@@ -1,4 +1,26 @@
 [
+
+    {
+
+        "id": "",
+        "nome": "",
+        "tipo": "",
+        "arquetipos": [],
+        "permanente": false,
+        "pv": 0,
+        "peso": 0,
+        "cargas": 0,
+
+        "descricao": "",
+
+        "talentos":[],
+        "manobras":[],
+        "modos":[],
+        "bonus":{},
+        "requisitos":{} 
+
+    },
+    
     {
         "id": "esfola_pestes",
         "nome": "Esfola Pestes",
@@ -73,3 +95,5 @@
     }
 
 ]
+
+
