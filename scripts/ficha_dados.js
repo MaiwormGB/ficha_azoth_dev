@@ -308,3 +308,99 @@ const temporario = {
     fervorP: 0,
 
 }
+
+//Objetos do sistema em suas formas base
+const item = {
+
+    "id": "",
+    "nome": "",
+    "tipo": "",
+    "arquetipos": [],
+    "permanente": false,
+    "pv": 0,
+    "carga": 0,
+    "usos": 0,
+
+    "descricao": "",
+
+    "talentos":[],
+    "manobras":[],
+    "modificadores":[],
+    "modos":[
+
+            {
+                "nome": "",
+                "arquetipo": "", 
+                "tiposDano":[],
+                "alcances": [],
+                "dano": ""
+            }
+
+    ],
+    "bonus":{},
+    "requisitos":{} 
+
+}
+
+const manobra = {
+
+    "id":"",
+    "nome": "",
+    "tipo": "",
+    "pericias":[],
+    "alcances": [],
+    "usos": 0,
+
+    "descricao":"",
+
+    "custos":{
+
+        "fervor": 0,
+        "pe": 0,
+        "it": 0
+
+    },
+
+    "requisitos":[]
+
+}
+
+const talento = {
+
+    "id":"",
+    "nome":"",
+    "categoria":"",
+    "descricao":"",
+    "bonus":{},
+    "requisitos":[] 
+
+}
+
+const relva = {
+
+    "id":"",
+    "nome":"",
+    "significados":[],
+        
+    "modos":[
+
+        {
+
+            "nome":"",
+            "execucao":"",
+            "foco": false,
+            "pe": 0,
+            "it": 0,
+            "alcance": 0,
+            "tipos":[],
+            "alvos":[],
+            "descricao":"",
+            "requisitos":{}
+
+        }
+
+    ],
+
+    "requisitos":[]
+
+}

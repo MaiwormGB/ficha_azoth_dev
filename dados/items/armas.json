@@ -15,6 +15,7 @@
 
         "talentos":[],
         "manobras":[],
+        "modificadores":[],
         "modos":[],
         "bonus":{},
         "requisitos":{} 

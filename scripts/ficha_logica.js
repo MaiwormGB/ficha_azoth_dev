@@ -201,33 +201,13 @@ const interface = {
 
     },
 
+    inventario:{
+
+        novoItemImagem: document.getElementById("novoItemImagem")
+
+    },
+
     menuInventario:{
-
-        botoes:{
-
-            arma: document.getElementById("novoArmaBtn"),
-            amuleto: document.getElementById("novoAmuletoBtn"),
-            protecao: document.getElementById("novoProtecaoBtn"),
-            mochila: document.getElementById("novoMochilaBtn"),
-            recipiente: document.getElementById("novoRecipienteBtn"),
-            ferramenta: document.getElementById("novoFerramentaBtn"),
-            suprimento: document.getElementById("novoSuprimentoBtn"),
-            variado: document.getElementById("novoVariadoBtn")
-
-        },
-
-        forms:{
-
-            arma: document.getElementById("novoArmaForm"),
-            amuleto: document.getElementById("novoAmuletoForm"),
-            protecao: document.getElementById("novoProtecaoForm"),
-            mochila: document.getElementById("novoMochilaForm"),
-            recipiente: document.getElementById("novoRecipienteForm"),
-            ferramenta: document.getElementById("novoFerramentaForm"),
-            suprimento: document.getElementById("novoSuprimentoForm"),
-            variado: document.getElementById("novoVariadoForm")
-
-        },
 
         menuAdicionarTitulo: document.getElementById("menu_adicionar_titulo")
 
@@ -320,7 +300,7 @@ const tela = {
             "../acervo/novaficha_background_combate.jpg",
             "../acervo/novaficha_background_base.jpg",
             "../acervo/novaficha_background_pericias.jpg",
-            "../acervo/novaficha_background_base.jpg",
+            "../acervo/novaficha_background_inventario.jpg",
             "../acervo/novaficha_background_base.jpg",
         ]
 
@@ -773,28 +753,558 @@ const menu = {
 
     //MENU INVENTARIO
 
-    mudarAbaInventario(form, titulo){
+    abaInventario: "Arma",
 
-        abas = document.querySelectorAll(".menu_adicionar_form")
-        const titulos = Object.keys(interface.menuInventario.forms);
+    mudarAbaInventario(titulo){
 
-        abas.forEach(aba =>{
+        const titulos = [
+            "Arma",
+            "Amuleto",
+            "Protreção",
+            "Mochila",
+            "Recipiente",
+            "Ferramenta",
+            "Suprimento",
+            "Variados"
+        ]
 
-            aba.style.display = "none";
+        interface.menuInventario.menuAdicionarTitulo.textContent = titulos[titulo];
+
+    },
+
+    mudarNovoItemImagem(){
+
+        console.log(interface.inventario.novoItemImagem.src)
+
+        if(interface.inventario.novoItemImagem.getAttribute("src") == "../acervo/novo_item_fechado.png"){
+
+            interface.inventario.novoItemImagem.src = "../acervo/novo_item_aberto.png"
+            console.log("aberto")
+
+        }else{
+
+            interface.inventario.novoItemImagem.src = "../acervo/novo_item_fechado.png"
+            console.log("fechado")
+
+        }
+
+    },
+
+    preencherListaModo(modo, tipo) {
+
+        const indiceModo = Number(modo.dataset.indice);
+
+        let valores;
+
+        let lista;
+
+        if (tipo === "tipoDano") {
+
+            valores = menu.novoModos[indiceModo].tiposDano;
+            lista = modo.querySelector(".lista_tipo_dano");
+
+        } else if (tipo === "alcance") {
+
+            valores = menu.novoModos[indiceModo].alcances;
+            lista = modo.querySelector(".lista_alcance");
+        }
+
+        lista.innerHTML = "";
+
+        lista.style.display = valores.length > 0 ? "flex" : "none";
+
+        valores.forEach((valor, indice) => {
+
+            const p = document.createElement("p");
+
+            p.textContent = valor;
+
+            p.addEventListener("click", () => {
+
+                valores.splice(indice, 1);
+                alert("Caracteristica removida")
+                this.preencherListaModo(modo, tipo);
+
+            });
+
+            lista.appendChild(p);
+
+        });
+    },
+    
+    adicionarMultiploModo(botao, tipo) {
+
+        const modo = botao.closest(".menu_adicionar_modo");
+
+        const indiceModo = Number(modo.dataset.indice);
+
+        const multiplo = botao.parentElement;
+        const input = multiplo.querySelector("input");
+
+        if (!input.value.trim()) {
+            alert("Preencha o campo antes de adicionar");
+            return;
+        }
+
+        const valor = input.value.trim();
+
+        if (tipo === "tipoDano") {
+
+            menu.novoModos[indiceModo].tiposDano.push(valor);
+            alert("Tipo de dano adicionado")
+
+        } else if (tipo === "alcance") {
+
+            menu.novoModos[indiceModo].alcances.push(valor);
+            alert("Alcance adicionado")
+
+        }
+
+        input.value = "";
+
+        this.preencherListaModo(modo, tipo);
+    },
+
+    novoArquetipos: [],
+    novoTalentos: [],
+    novoManobras: [],
+    novoModificadores: [],
+    novoModos: [],
+    modoAt: 0,
+
+    preencherListaMultiplos(tipo) {
+
+        switch (tipo) {
+
+            case "arquetipo": {
+                const lista = document.getElementById("itemArquetipoLista");
+
+                lista.style.display = menu.novoArquetipos.length > 0 ? "flex" : "none";
+                lista.innerHTML = "";
+
+                menu.novoArquetipos.forEach((arquetipo, indice) => {
+
+                    const p = document.createElement("p");
+                    p.textContent = arquetipo;
+
+                    p.addEventListener("click", () => {
+                        menu.novoArquetipos.splice(indice, 1);
+                        alert("Arquetipo removido");
+                        this.preencherListaMultiplos("arquetipo");
+                    });
+
+                    lista.appendChild(p);
+                });
+
+                break;
+            }
+
+            case "talento": {
+                const lista = document.getElementById("itemTalentosLista");
+
+                lista.style.display = menu.novoTalentos.length > 0 ? "flex" : "none";
+                lista.innerHTML = "";
+
+                menu.novoTalentos.forEach((talento, indice) => {
+
+                    const p = document.createElement("p");
+                    p.textContent = talento;
+
+                    p.addEventListener("click", () => {
+                        menu.novoTalentos.splice(indice, 1);
+                        alert("Talento removido");
+                        this.preencherListaMultiplos("talento");
+                    });
+
+                    lista.appendChild(p);
+                });
+
+                break;
+            }
+
+            case "manobra": {
+                const lista = document.getElementById("itemManobrasLista");
+
+                lista.style.display = menu.novoManobras.length > 0 ? "flex" : "none";
+                lista.innerHTML = "";
+
+                menu.novoManobras.forEach((manobra, indice) => {
+
+                    const p = document.createElement("p");
+                    p.textContent = manobra;
+
+                    p.addEventListener("click", () => {
+                        menu.novoManobras.splice(indice, 1);
+                        alert("Manobra removida");
+                        this.preencherListaMultiplos("manobra");
+                    });
+
+                    lista.appendChild(p);
+                });
+
+                break;
+            }
+
+            case "modificador": {
+                const lista = document.getElementById("itemModificadoresLista");
+
+                lista.style.display = menu.novoModificadores.length > 0 ? "flex" : "none";
+                lista.innerHTML = "";
+
+                menu.novoModificadores.forEach((modificador, indice) => {
+
+                    const p = document.createElement("p");
+                    p.textContent = modificador;
+
+                    p.addEventListener("click", () => {
+                        menu.novoModificadores.splice(indice, 1);
+                        alert("Modificador removido");
+                        this.preencherListaMultiplos("modificador");
+                    });
+
+                    lista.appendChild(p);
+                });
+
+                break;
+            }
+        }
+    },
+
+    adicionarModoItem(){
+
+    const lista = document.getElementById("itemListaModos")
+
+        if(menu.modoAt == 0){
+
+            const modo = document.createElement("div");
+
+            modo.classList.add("menu_adicionar_modo")
+            modo.dataset.indice = menu.novoModos.length;;
+            modo.innerHTML = `
+                <h1>Modo base</h1>
+
+                <div class="menu_adicionar_multiplo">
+                    <input type="text" placeholder="Tipo de dano">
+                    <button 
+                        title="adicionar tipo de dano"
+                        onclick="menu.adicionarMultiploModo(this, 'tipoDano')">
+                        +
+                    </button>
+                </div>
+
+                <div class="menu_adicionar_lista lista_tipo_dano"></div>
+
+                <div class="menu_adicionar_multiplo">
+                    <input type="text" placeholder="Alcance">
+                    <button 
+                        title="adicionar alcance"
+                        onclick="menu.adicionarMultiploModo(this, 'alcance')">
+                        +
+                    </button>
+                </div>
+
+                <div class="menu_adicionar_lista lista_alcance"></div>
+
+                <input type="text" class="modo_dano" placeholder="Dano">
+            `;
+
+            lista.appendChild(modo);
+
+        }else if(menu.modoAt == 1){
+
+            lista.innerHTML = "";
+            menu.novoModos = [];
+
+            const modo = document.createElement("div");
+
+            modo.classList.add("menu_adicionar_modo")
+            modo.dataset.indice = menu.novoModos.length;;
+            modo.innerHTML = `
+                <h1>Modo ${menu.modoAt}</h1>
+
+                <input type="text" class="modo_nome" placeholder="Nome">
+                <input type="text" class="modo_arquetipo"  placeholder="Arquetipo">
+
+                <div class="menu_adicionar_multiplo">
+                    <input type="text" placeholder="Tipo de dano">
+                    <button 
+                        title="adicionar tipo de dano"
+                        onclick="menu.adicionarMultiploModo(this, 'tipoDano')">
+                        +
+                    </button>
+                </div>
+
+                <div class="menu_adicionar_lista lista_tipo_dano"></div>
+
+                <div class="menu_adicionar_multiplo">
+                    <input type="text" placeholder="Alcance">
+                    <button 
+                        title="adicionar alcance"
+                        onclick="menu.adicionarMultiploModo(this, 'alcance')">
+                        +
+                    </button>
+                </div>
+
+                <div class="menu_adicionar_lista lista_alcance"></div>
+
+                <input type="text" class="modo_dano" placeholder="Dano">
+            `;
+
+            lista.appendChild(modo);
+
+        }else{
+
+            const modo = document.createElement("div");
+
+            modo.classList.add("menu_adicionar_modo")
+            modo.dataset.indice = menu.novoModos.length;;
+            modo.innerHTML = `
+
+                    <h1>Modo ${menu.modoAt}</h1>
+
+                    <input type="text" class="modo_nome" placeholder="Nome">
+                    <input type="text" class="modo_arquetipo"  placeholder="Arquetipo">
+
+                    <div class="menu_adicionar_multiplo">
+                        <input type="text" placeholder="Tipo de dano">
+                        <button 
+                            title="adicionar tipo de dano"
+                            onclick="menu.adicionarMultiploModo(this, 'tipoDano')">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="menu_adicionar_lista lista_tipo_dano"></div>
+
+                    <div class="menu_adicionar_multiplo">
+                        <input type="text" placeholder="Alcance">
+                        <button 
+                            title="adicionar alcance"
+                            onclick="menu.adicionarMultiploModo(this, 'alcance')">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="menu_adicionar_lista lista_alcance"></div>
+
+                    <input type="text" class="modo_dano" placeholder="Dano">
+                `;
+
+            lista.appendChild(modo);
+
+        }
+
+        menu.novoModos.push({
+            nome: "",
+            arquetipo: "",
+            tiposDano: [],
+            alcances: [],
+            dano: ""
+        });
+        menu.modoAt ++;
+
+    },
+
+    adicionarMultiploItem(tipo) {
+
+        switch (tipo) {
+
+            case "arquetipo": {
+
+                const input = document.getElementById("itemArquetipo");
+
+                if (input.value) {
+                    menu.novoArquetipos.push(input.value);
+
+                    console.log(menu.novoArquetipos);
+                    alert("Arquetipo adicionado à lista");
+
+                    menu.preencherListaMultiplos("arquetipo");
+
+                    input.value = "";
+                } else {
+                    alert("Preencha o campo antes de tentar adicionar");
+                }
+
+                break;
+            }
+
+            case "talento": {
+
+                const input = document.getElementById("itemTalento");
+
+                if (input.value) {
+                    menu.novoTalentos.push(input.value);
+
+                    console.log(menu.novoTalentos);
+                    alert("Talento adicionado à lista");
+
+                    menu.preencherListaMultiplos("talento");
+
+                    input.value = "";
+                } else {
+                    alert("Preencha o campo antes de tentar adicionar");
+                }
+
+                break;
+            }
+
+            case "manobra": {
+
+                const input = document.getElementById("itemManobra");
+
+                if (input.value) {
+                    menu.novoManobras.push(input.value);
+
+                    console.log(menu.novoManobras);
+                    alert("Manobra adicionada à lista");
+
+                    menu.preencherListaMultiplos("manobra");
+
+                    input.value = "";
+                } else {
+                    alert("Preencha o campo antes de tentar adicionar");
+                }
+
+                break;
+            }
+
+            case "modificador": {
+
+                const input = document.getElementById("itemModificador");
+
+                if (input.value) {
+                    menu.novoModificadores.push(input.value);
+
+                    console.log(menu.novoModificadores);
+                    alert("Modificador adicionado à lista");
+
+                    menu.preencherListaMultiplos("modificador");
+
+                    input.value = "";
+                } else {
+                    alert("Preencha o campo antes de tentar adicionar");
+                }
+
+                break;
+            }
+        }
+    },
+
+    esvaziarItem(){
+        
+        const inputs = {
+
+            nome: document.getElementById("itemNome"),
+            permanente: document.getElementById("itemPermanente"),
+            pv: document.getElementById("itemPv"),
+            carga: document.getElementById("itemCarga"),
+            usos: document.getElementById("itemUsos"),
+            descricao: document.getElementById("itemDescricao")
+        }
+
+        const lista = document.getElementById("itemListaModos")
+
+        Object.values(inputs).forEach((input) => {
+
+            if(input.checked){
+
+                input.checked = false;
+
+            }else{
+
+                input.value = ""
+
+            }
+
+        })
+
+        menu.modoAt = 0;
+        
+        this.novoArquetipos = [];
+        this.novoTalentos = [];
+        this.novoManobras = [];
+        this.novoModificadores = [];
+        this.novoModos = [];
+
+        menu.preencherListaMultiplos("arquetipo");
+        menu.preencherListaMultiplos("talento");
+        menu.preencherListaMultiplos("manobra");
+        menu.preencherListaMultiplos("modificador");
+
+        lista.innerHTML = "";
+
+
+
+    },
+
+    cadastrarItem(){
+
+        const modos = document.querySelectorAll(".menu_adicionar_modo");
+
+        modos.forEach((modo, indice) => {
+
+            const nome = modo.querySelector(".modo_nome");
+            const arquetipo = modo.querySelector(".modo_arquetipo");
+            const dano = modo.querySelector(".modo_dano");
+
+            menu.novoModos[indice].nome = nome?.value ?? "";
+            menu.novoModos[indice].arquetipo = arquetipo?.value ?? "";
+            menu.novoModos[indice].dano = dano?.value ?? "";
 
         });
 
-        form.style.display = "flex";
+
+        const inputs = {
+
+            nome: document.getElementById("itemNome"),
+
+            permanente: document.getElementById("itemPermanente"),
+
+            pv: document.getElementById("itemPv"),
+
+            carga: document.getElementById("itemCarga"),
+
+            usos: document.getElementById("itemUsos"),
+
+            descricao: document.getElementById("itemDescricao")
+
+        };
+
+
+        const item = {
+
+            "id": "",
+            "nome": inputs.nome.value,
+            "tipo": interface.menuInventario.menuAdicionarTitulo.textContent,
+            "arquetipos": menu.novoArquetipos,
+            "permanente": inputs.permanente.checked,
+            "pv": inputs.pv.value,
+            "carga": inputs.carga.value,
+            "usos": inputs.usos.value,
+            "descricao": inputs.descricao.value,
+            "talentos": menu.novoTalentos,
+            "manobras": menu.novoManobras,
+            "modificadores": menu.novoModificadores,
+            "modos": menu.novoModos,
+            "bonus": {},
+            "requisitos": []
+
+        };
 
 
 
-        interface.menuInventario.menuAdicionarTitulo.textContent = titulos[titulo];
+        menu.esvaziarItem();
+
+        ficha.inventario.push(item)
+        console.log(ficha.inventario);
+        alert("Item cadastrado");
 
     }
 
 }
 
-menu.mudarAbaInventario(interface.menuInventario.forms.arma, 0)
+menu.mudarAbaInventario(0)
 
 //EVENTOS
 

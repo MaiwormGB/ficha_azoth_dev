@@ -732,7 +732,64 @@
 
             </div>
 
-            <button onclick="menu.abrirOverlay(9,'menu_inventario_adicionar')" >ADICIONAR ITEM</button>
+            <div class="inventario_header">
+
+                <div id="itemInfo">
+
+
+
+
+                </div>
+
+                <div id="novoItemBtn" 
+                    onclick="menu.abrirOverlay(9,'menu_inventario_adicionar')" 
+                    onmouseenter="menu.mudarNovoItemImagem()"
+                    onmouseleave="menu.mudarNovoItemImagem()">
+
+                    <img src="../acervo/novo_item_fechado.png" id="novoItemImagem" alt="">
+
+                </div>
+
+            </div>
+
+            <div class="inventario_main">
+
+                <div class="inventario_main_header">
+
+                    <div class="inventario_main_header_btn" id="inventarioMainBtnLeft"> <img src="../acervo/icones_inventario/setinha.png" alt=""></div>
+
+                    <h1 id="inventarioMainTipo">Tipo</h1>
+
+                    <div class="inventario_main_header_btn" id="inventarioMainBtnRight"> <img src="../acervo/icones_inventario/setinha.png" alt=""></div>                    
+
+                </div>
+
+                <div class="inventario_main_body">
+
+                    <div id="inventarioLista">
+
+                        <div class="inventario_item item_arma"> <img src="../acervo/icones_inventario/icone_arma.png" alt=""></div>
+                        <div class="inventario_item item_amuleto"> <img src="../acervo/icones_inventario/icone_amuleto.png" alt=""></div>
+                        <div class="inventario_item item_protecao"> <img src="../acervo/icones_inventario/icone_protrecao.png" alt=""></div>
+                        <div class="inventario_item item_mochila"> <img src="../acervo/icones_inventario/icone_mochila.png" alt=""></div>
+                        <div class="inventario_item item_suprimento"> <img src="../acervo/icones_inventario/icone_suprimentos.png" alt=""></div>
+                        <div class="inventario_item item_variado"> <img src="../acervo/icones_inventario/icone_variados.png" alt=""></div>
+
+                    </div>
+
+                    <div id="inventarioListaAvancarBtn">
+
+                        <img src="../acervo/icones_inventario/setinha.png" alt="">
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            
 
         </div>
 
@@ -1106,14 +1163,14 @@
 
             <div class="menu_buttons">
 
-                <button id="novoArmaBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.arma, 0)" title="Nova Arma">AR</button>
-                <button id="novoAmuletoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.amuleto, 1)"  title="Novo Amuleto">AM</Button>
-                <button id="novoProtecaoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.protecao, 2)" title="Nova Proteção">PR</button>
-                <button id="novoMochilaBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.mochila, 3)" title="Nova Mochila">MO</button>
-                <button id="novoRecipienteBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.recipiente, 4)" title="Novo Recipiente">RE</button>
-                <button id="novoFerramentaBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.ferramenta, 5)" title="Nova Ferramenta">FE</button>
-                <button id="novoSuprimentoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.suprimento, 6)" title="Novo Suprimento">SU</button>
-                <button id="novoVariadoBtn" onclick="menu.mudarAbaInventario(interface.menuInventario.forms.variado, 7)" title="Novo Item Variado">VA</button>
+                <button id="novoArmaBtn" onclick="menu.mudarAbaInventario(0)" title="Nova Arma">AR</button>
+                <button id="novoAmuletoBtn" onclick="menu.mudarAbaInventario(1)"  title="Novo Amuleto">AM</Button>
+                <button id="novoProtecaoBtn" onclick="menu.mudarAbaInventario(2)" title="Nova Proteção">PR</button>
+                <button id="novoMochilaBtn" onclick="menu.mudarAbaInventario(3)" title="Nova Mochila">MO</button>
+                <button id="novoRecipienteBtn" onclick="menu.mudarAbaInventario(4)" title="Novo Recipiente">RE</button>
+                <button id="novoFerramentaBtn" onclick="menu.mudarAbaInventario(5)" title="Nova Ferramenta">FE</button>
+                <button id="novoSuprimentoBtn" onclick="menu.mudarAbaInventario(6)" title="Novo Suprimento">SU</button>
+                <button id="novoVariadoBtn" onclick="menu.mudarAbaInventario(7)" title="Novo Item Variado">VA</button>
 
             </div>
 
@@ -1123,79 +1180,99 @@
 
                 <div class="menu_adicionar_form" id="novoArmaForm">
 
-                    <input type="text" placeholder="Nome">
+                    <input type="text" id="itemNome" placeholder="Nome">
 
+
+                    <div class="menu_adicionar_multiplo">
+
+                        <input type="text" id="itemArquetipo" placeholder="Arquétipo">
+                        <button title="adicionar arquetipo" onclick="menu.adicionarMultiploItem('arquetipo')" >+</button>
+
+                    </div>
+
+                    <div class="menu_adicionar_lista" id="itemArquetipoLista">
+
+ 
+
+                    </div>
+
+                    <div class="menu_adicionar_form_label">
+
+                        <h2>PERMANENTE? ||</h2>
+
+                        <input type="checkbox" id="itemPermanente">
+
+                    </div>
+
+                    <div class="menu_adicionar_form_label">
+
+                    <input type="number" placeholder="PV" id="itemPv">
+                    <input type="number" placeholder="Peso/Carga" id="itemCarga">
+                    <input type="number" placeholder="Usos" id="itemUsos">
+
+
+                    </div>
+
+                    <textarea name="Descrição" id="itemDescricao" placeholder="Descrição"></textarea>
+                    
+                    <div class="menu_adicionar_form_div"></div>
 
                     <div class="menu_adicionar_form_label">
 
                         <h2>Adicionar modo ||</h2>
 
-                        <button title="adicionar modo" id="adicionar_modo">+</button>
+                        <button title="adicionar modo" onclick="menu.adicionarModoItem()" >+</button>
     
                     </div>
 
-                    <div class="menu_adicionar_form_div"></div>
+                    <div class="menu_adicionar_modos" id="itemListaModos">
+
+                    </div>
 
 
-                    <input type="text" placeholder="Arquétipo">
-                    <input type="text" placeholder="Tipos de dano">
-                    <input type="text" placeholder="Dano">
 
-                    <div class="menu_adicionar_form_div"></div>
+                    <div class="menu_adicionar_multiplo">
 
-                    <textarea name="Descrição" placeholder="Descrição"></textarea>
-                    
+                        <input type="text" id="itemTalento" placeholder="Talentos conjulgados">
+
+                        <button title="Adicionar Talento" onclick="menu.adicionarMultiploItem('talento')" >+</button>
+
+                    </div>
+
+                    <div class="menu_adicionar_lista" id="itemTalentosLista">
+
+  
+
+                    </div>
+
+                    <div class="menu_adicionar_multiplo">
+
+                        <input type="text" id="itemManobra" placeholder="Manobras conjulgadas">
+
+                        <button title="Adicionar Manobra" onclick="menu.adicionarMultiploItem('manobra')" >+</button>
+
+                    </div>
+
+                    <div class="menu_adicionar_lista" id="itemManobrasLista">
+
+                    </div>
+
+                    <div class="menu_adicionar_multiplo">
+
+                        <input type="text" id="itemModificador" placeholder="Modificadores">
+
+                        <button title="Adicionar Modificador" onclick="menu.adicionarMultiploItem('modificador')">+</button>
+
+                    </div>
 
 
-                    <input type="text" placeholder="Talento conjulgado">
-                    <input type="text" placeholder="Modificador">
+                    <div class="menu_adicionar_lista" id="itemModificadoresLista">  
 
-                </div>
-
-                <div class="menu_adicionar_form" id="novoAmuletoForm">
-
-                    <input type="text" placeholder="Nome">
-                    <input type="text" placeholder="Tipo">
-
-                    <div class="menu_adicionar_form_div"></div>
-
-                    <input type="text" placeholder="Talento conjulgado">
-                    <textarea name="Descrição" placeholder="Descrição"></textarea>
-
-                    <div class="menu_adicionar_form_div"></div>
-
-                    <input type="number" placeholder="Intgr +">
-                    <input type="number" placeholder="Def +">
-
-                </div>
-
-                <div class="menu_adicionar_form" id="novoProtecaoForm">
-
-                    <input type="text" placeholder="Nome">
-
-                    <div class="menu_adicionar_form_div"></div>
-
-                    <input type="text" placeholder="Talento conjulgado">
-                    <textarea name="Descrição" placeholder="Descrição"></textarea>
-
-                    <div class="menu_adicionar_form_div"></div>
-
-                    <input type="number" placeholder="Intgr +">
-                    <input type="number" placeholder="Def +">
+                    </div>
 
                 </div>
 
-                <div class="menu_adicionar_form" id="novoMochilaForm">
-
-                    <input type="text" placeholder="Nome">
-                    <input type="text" placeholder="Tipo">
-                    <input type="text" placeholder="Talento conjulgado">
-
-                    <textarea name="Descrição" placeholder="Descrição"></textarea>
-
-                </div>
-
-                <button id="adicionar_item_btn" >ADICIONAR ITEM</button>
+                <button id="adicionar_item_btn" onclick="menu.cadastrarItem()" >ADICIONAR ITEM</button>
 
             </div>
 
