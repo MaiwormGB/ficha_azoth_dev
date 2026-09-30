@@ -203,7 +203,9 @@ const interface = {
 
     inventario:{
 
-        novoItemImagem: document.getElementById("novoItemImagem")
+        novoItemImagem: document.getElementById("novoItemImagem"),
+        inventarioLista: document.getElementById("inventarioLista"),
+        filtro: document.getElementById("inventarioMainTipo")
 
     },
 
@@ -291,33 +293,40 @@ const tela = {
 
     },
 
-    mudarAba(sessao){
+    mudarAba(sessao) {
 
-        const abas = document.querySelectorAll(".container");
-        const backgrounds = [
-            "../acervo/novaficha_background_base.jpg",
-            "../acervo/novaficha_background_pericias.jpg",
-            "../acervo/novaficha_background_combate.jpg",
-            "../acervo/novaficha_background_base.jpg",
-            "../acervo/novaficha_background_pericias.jpg",
-            "../acervo/novaficha_background_inventario.jpg",
-            "../acervo/novaficha_background_base.jpg",
-        ]
+    const abas = document.querySelectorAll(".container");
 
+    const backgrounds = [
+        "../acervo/novaficha_background_base.jpg",
+        "../acervo/novaficha_background_pericias.jpg",
+        "../acervo/novaficha_background_combate.jpg",
+        "../acervo/novaficha_background_base.jpg",
+        "../acervo/novaficha_background_pericias.jpg",
+        "../acervo/novaficha_background_inventario.jpg",
+        "../acervo/novaficha_background_base.jpg",
+    ];
 
-        abas.forEach(aba =>{
+    abas.forEach(aba => {
+        aba.style.display = "none";
+    });
 
-            aba.style.display = "none";
+    const novaImagem = new Image();
 
-        });
+    novaImagem.onload = () => {
 
-        document.body.style.backgroundImage = `url("${backgrounds[sessao]}")`;
-        abas[0].style.display = "flex";
-        abas[sessao].style.display = "flex";
+        document.body.style.backgroundImage =
+            `url("${backgrounds[sessao]}")`;
 
-        menu.abrirOverlay(0, null)
+    };
 
-        },
+    novaImagem.src = backgrounds[sessao];
+
+    abas[0].style.display = "flex";
+    abas[sessao].style.display = "flex";
+
+    menu.abrirOverlay(0, null);
+    },
 
     abrirProficiencias(){
 
@@ -332,6 +341,210 @@ const tela = {
             proficiencias.classList.add("fechado");
 
         }
+
+    },
+
+    tipoAt: 0,
+
+    paginaInventario: 0,
+
+    itensPorPagina: 6,
+
+    itensFiltrados: [],
+
+    mudarTipoInventario(direcao){
+
+        titulo = document.getElementById("inventarioMainTipo");
+
+        tipos = [
+            "Todos",
+            "Armas",
+            "Amuletos",
+            "Proteções",
+            "Mochilas",
+            "Recipientes",
+            "Ferramentas",
+            "Suprimentos",
+            "Variados"
+        ]
+
+        this.tipoAt += direcao;
+
+        if (this.tipoAt > 8){
+
+            this.tipoAt = 0
+
+        }else if (this.tipoAt < 0){
+
+            this.tipoAt = 8
+
+        }
+
+        titulo.textContent = tipos[this.tipoAt]
+        this.paginaInventario = 0;
+        this.preencherInventario()
+
+    },
+
+    preencherInventario(){
+
+        interface.inventario.inventarioLista.innerHTML = "";
+        this.itensFiltrados.length = 0;
+
+        inicio = this.paginaInventario * this.itensPorPagina;
+        fim = inicio + this.itensPorPagina;
+
+        const tipos = {
+            "Todos": null,
+            "Armas": "Arma",
+            "Amuletos": "Amuleto",
+            "Proteções": "Proteção",
+            "Mochilas": "Mochila",
+            "Recipientes": "Recipiente",
+            "Ferramentas": "Ferramenta",
+            "Suprimentos": "Suprimento",
+            "Variados": "Variados"
+        }
+
+        const filtroTipo = tipos[interface.inventario.filtro.textContent.trim()];
+
+        ficha.inventario.forEach((item, index) => {
+
+            if (filtroTipo !== null && item.tipo !== filtroTipo){
+                return;
+
+            }
+            
+            const itemFiltrado = {
+
+                item: item,
+                index: index
+
+            }
+
+            this.itensFiltrados.push(itemFiltrado);
+
+        })
+
+        const itensPagina = this.itensFiltrados.slice(inicio,fim)
+
+        itensPagina.forEach((obj) =>{
+
+            const div = document.createElement("div");
+            const img = document.createElement("img");
+
+            div.classList.add(`inventario_item`);
+
+            if (obj.item.tipo === "Proteção"){
+
+                div.classList.add(`item_protecao`)
+                img.src = `../acervo/icones_inventario/icone_protecao.png`
+
+            }else{
+
+                div.classList.add(`item_${obj.item.tipo.toLowerCase()}`)
+                img.src = `../acervo/icones_inventario/icone_${obj.item.tipo.toLowerCase()}.png`
+
+            }
+
+            div.title = obj.item.nome;
+            div.dataset.id = obj.index;
+
+            div.addEventListener("click", () => {
+
+                menu.abrirOverlay(8,"menu_iventario_item")
+
+            });
+
+            div.appendChild(img);
+
+            interface.inventario.inventarioLista.appendChild(div);
+
+        })
+
+    },
+
+    mudarPaginaInventario(){
+
+        const inicioProximaPagina = (this.paginaInventario + 1) * this.itensPorPagina;
+
+        if (inicioProximaPagina >= this.itensFiltrados.length){
+            this.paginaInventario = 0;
+        }else{
+            this.paginaInventario ++;
+        }
+
+        this.preencherInventario()
+
+    },
+
+    abrirFomularioItem(event){
+
+        const div = event.currentTarget;
+        const item = ficha.inventario[div.dataset.id];
+        const form = document.getElementById("menu_iventario_item");
+
+        if(item.tipo == "Proteção"){
+            form.style.backgroundImage = `url(../acervo/formularios_iventario/fundo_formulario_protecao.png)`
+        }else {
+            form.style.backgroundImage = `url(../acervo/formularios_iventario/fundo_formulario_${item.tipo}.png)`
+        }
+
+        this.preencherFormularioItem(item)  
+
+    },
+
+    preencherFormularioItem(item){
+
+        const campos = document.querySelectorAll(".item_form_campo");
+
+        campos.forEach(campo => {
+
+            campo.textContent = ""
+
+        })
+        console.log(campos);
+
+
+        //Nome
+        campos[0].textContent = item.nome;
+
+        //Arquetipos
+        item.arquetipos.forEach(arquetipo =>{
+
+            campos[1].textContent += " | " + arquetipo + " \n | ";
+
+        })
+
+        //Peso 
+        if (item.carga){
+
+            campos[2].textContent = `PESO: ${item.carga}`
+
+        }
+
+        
+
+        //
+
+        /*campos.forEach(campo =>{
+
+            campo.style.display = "flex"
+
+            if (!campo.textContent){
+
+                campo.style.display = "none"
+
+            }
+
+        })
+        */
+
+    },
+
+    atualizarInventario(){
+
+        this.preencherInventario()  
 
     }
 
@@ -357,7 +570,39 @@ const salvar ={
 
     input.value = "";
 
-}
+
+
+    },
+
+    salvarFicha(){
+
+        const dados = {
+
+            ficha: ficha,
+            temporario: temporario
+
+        };
+
+        localStorage.setItem(
+            "dados",
+            JSON.stringify(dados)
+        )
+        
+    },
+
+    carregarFicha(){
+
+        const dados = localStorage.getItem("dados");
+
+        if(dados){
+
+            const dadosLocais = JSON.parse(dados);
+
+            ficha = dadosLocais.ficha;
+            temporario = dadosLocais.temporario;
+        }
+
+    }
 
 }
 
@@ -457,7 +702,8 @@ const editar = {
         //=========================
 
         tela.atualizarStatus();
-        abrirOverlay(0,null);
+        menu.abrirOverlay(0,null);
+        salvar.salvarFicha();
 
     },
     atualizarPericias(){
@@ -483,7 +729,9 @@ const editar = {
         });
 
         tela.atualizarPericias();
-        abrirOverlay(0,null);
+        salvar.salvarFicha()
+        menu.abrirOverlay(0,null);
+        salvar.salvarFicha();
 
     }
 }
@@ -611,6 +859,7 @@ const menu = {
         }
 
         tela.atualizarStatus();
+        salvar.salvarFicha()
 
         this.preencherListaDano(interface.menuDano.tipoAtual);
 
@@ -649,6 +898,7 @@ const menu = {
     }
 
     tela.atualizarStatus();
+    salvar.salvarFicha()
 
     this.preencherListaDano(interface.menuDano.tipoAtual);
 
@@ -709,7 +959,7 @@ const menu = {
 
         }
 
-        const modais = document.querySelectorAll(".editar, .menu");
+        const modais = document.querySelectorAll(".editar, .menu, .item_form");
 
         modais.forEach(modal =>{
             modal.classList.remove("aberto");
@@ -718,12 +968,17 @@ const menu = {
 
         const modal = document.getElementById(id);
 
-
         if (!id){
             return
         }
-        
+
         modal.style.display = "flex";
+        
+        if (modal.classList.contains("item_form")){
+
+            modal.classList.add("animacao_entrada");
+
+        }
 
         requestAnimationFrame(() =>{
             modal.classList.add("aberto");
@@ -746,6 +1001,13 @@ const menu = {
 
                 this.preencherMenuPericias();
                 break;
+            case 8:
+
+                tela.abrirFomularioItem(event)
+
+                break;
+
+            
 
         }
 
@@ -760,7 +1022,7 @@ const menu = {
         const titulos = [
             "Arma",
             "Amuleto",
-            "Protreção",
+            "Proteção",
             "Mochila",
             "Recipiente",
             "Ferramenta",
@@ -789,6 +1051,8 @@ const menu = {
         }
 
     },
+
+
 
     preencherListaModo(modo, tipo) {
 
@@ -1297,10 +1561,13 @@ const menu = {
         menu.esvaziarItem();
 
         ficha.inventario.push(item)
-        console.log(ficha.inventario);
-        alert("Item cadastrado");
+        salvar.salvarFicha()
+        tela.atualizarInventario()
+        alert("Item cadastrado!");
 
-    }
+    },
+
+ 
 
 }
 
@@ -1309,7 +1576,7 @@ menu.mudarAbaInventario(0)
 //EVENTOS
 
 //Permite interagir com os elementos dentro da div "Borrar", sem ativar oa função de sair
-document.querySelectorAll(".editar, .menu").forEach(elemento => {
+document.querySelectorAll(".editar, .menu, .item_form").forEach(elemento => {
 
     elemento.addEventListener("click", function(event){
 
@@ -1321,6 +1588,9 @@ document.querySelectorAll(".editar, .menu").forEach(elemento => {
 
 
 //CARREGAMENTO INICIAL
+salvar.carregarFicha()
+
 tela.atualizarStatus()
 tela.atualizarPericias()
 tela.atualizarCombate()
+tela.atualizarInventario()

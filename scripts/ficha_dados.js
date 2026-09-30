@@ -1,5 +1,5 @@
 //objeto da ficha -> salvar no local storage E gerar JSON baixavel para salvamento mais aprofundado
-const ficha = {
+let ficha = {
     //STATUS -------------------------- (mantidos como array, estrutura fixa)
 
     // 0 - PV Fixo
@@ -206,7 +206,7 @@ const ficha = {
 };
 
 //dados finitos que não são permanentes -> apenas salvar no local storage
-const temporario = {
+let temporario = {
 
     // ATRIBUTOS temporários (convertido para objeto nomeado, mesmas chaves de ficha.atributos)
     atributosModP: {

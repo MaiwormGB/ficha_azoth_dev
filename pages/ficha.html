@@ -298,22 +298,22 @@
 
                 <div class="linha" id="linha1">
 
-                    <div class="atrib" id="forca">[FOR]</div>
-                    <div class="atrib" id="agilidade">[AGI]</div>
+                    <div class="atrib" title="Força" id="forca">[FOR]</div>
+                    <div class="atrib" title="Agilidade" id="agilidade">[AGI]</div>
 
                 </div>
 
                 <div class="linha" id="linha2">
 
-                    <div class="atrib" id="presenca">[PRE]</div>
-                    <div class="atrib" id="intelecto">[INT]</div>
+                    <div class="atrib" title="Presença" id="presenca">[PRE]</div>
+                    <div class="atrib" title="Intelecto" id="intelecto">[INT]</div>
 
                 </div>
 
 
                 <div class="linha">
 
-                    <div class="atrib" id="vigor">[VIG]</div>
+                    <div class="atrib" title="Vigor" id="vigor">[VIG]</div>
 
                 </div>
 
@@ -664,7 +664,7 @@
 
                 <h1>INVENTARIO</h1>
 
-                <div class="editBtn"  onclick="menu.abrirOverlay(8,'menu_inventario')">
+                <div class="editBtn"  onclick="menu.abrirOverlay(6,'menu_inventario')">
 
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000"
                     preserveAspectRatio="xMidYMid meet">
@@ -742,7 +742,7 @@
                 </div>
 
                 <div id="novoItemBtn" 
-                    onclick="menu.abrirOverlay(9,'menu_inventario_adicionar')" 
+                    onclick="menu.abrirOverlay(0,'menu_inventario_adicionar')" 
                     onmouseenter="menu.mudarNovoItemImagem()"
                     onmouseleave="menu.mudarNovoItemImagem()">
 
@@ -756,11 +756,11 @@
 
                 <div class="inventario_main_header">
 
-                    <div class="inventario_main_header_btn" id="inventarioMainBtnLeft"> <img src="../acervo/icones_inventario/setinha.png" alt=""></div>
+                    <div class="inventario_main_header_btn" onclick="tela.mudarTipoInventario(-1)" id="inventarioMainBtnLeft"> <img src="../acervo/icones_inventario/setinha.png" alt=""></div>
 
-                    <h1 id="inventarioMainTipo">Tipo</h1>
+                    <h1 id="inventarioMainTipo">Todos</h1>
 
-                    <div class="inventario_main_header_btn" id="inventarioMainBtnRight"> <img src="../acervo/icones_inventario/setinha.png" alt=""></div>                    
+                    <div class="inventario_main_header_btn" onclick="tela.mudarTipoInventario(1)" id="inventarioMainBtnRight"> <img src="../acervo/icones_inventario/setinha.png" alt=""></div>                    
 
                 </div>
 
@@ -768,18 +768,13 @@
 
                     <div id="inventarioLista">
 
-                        <div class="inventario_item item_arma"> <img src="../acervo/icones_inventario/icone_arma.png" alt=""></div>
-                        <div class="inventario_item item_amuleto"> <img src="../acervo/icones_inventario/icone_amuleto.png" alt=""></div>
-                        <div class="inventario_item item_protecao"> <img src="../acervo/icones_inventario/icone_protrecao.png" alt=""></div>
-                        <div class="inventario_item item_mochila"> <img src="../acervo/icones_inventario/icone_mochila.png" alt=""></div>
-                        <div class="inventario_item item_suprimento"> <img src="../acervo/icones_inventario/icone_suprimentos.png" alt=""></div>
-                        <div class="inventario_item item_variado"> <img src="../acervo/icones_inventario/icone_variados.png" alt=""></div>
+                       
 
                     </div>
 
                     <div id="inventarioListaAvancarBtn">
 
-                        <img src="../acervo/icones_inventario/setinha.png" alt="">
+                        <img src="../acervo/icones_inventario/setinha.png" onclick="tela.mudarPaginaInventario()" alt="">
 
                     </div>
 
@@ -1158,7 +1153,6 @@
 
         </div>
 
-
         <div class="menu menu_form" id="menu_inventario_adicionar">
 
             <div class="menu_buttons">
@@ -1278,6 +1272,34 @@
 
         </div>
 
+        <div class="item_form" id="menu_iventario_item">
+
+            <h1 class="item_form_campo" id="item_form_nome">NOME</h1>
+
+            <img src="" id="item_form_imagem">
+
+            <p class="item_form_campo" id="item_form_arquetipos">ARQUETIPOS:</p>
+            <p class="item_form_campo" id="item_form_peso">PESO:</p>
+            <p class="item_form_campo" id="item_form_pv">PV:</p>
+            <p class="item_form_campo" id="item_form_permanente">PERMANENTE</p>
+            
+            <p class="item_form_campo" id="item_form_modificadores">MODIFICADORES:</p>
+
+            <p class="item_form_campo" id="item_form_modos">MODOS:</p>
+
+            <p class="item_form_campo" id="item_form_manobras">MANOBRAS:</p>
+
+            <p class="item_form_campo" id="item_form_bonus"></p>
+            <p class="item_form_campo" id="item_form_requisitos"></p>
+
+            <div class="item_form_buttons">
+
+                <button class="item_form_button">DELETAR</button>
+
+            </div>
+
+        </div>
+
     </div>
 
     <div class="abrir_menu" id="abrir_menu" onclick="menu.abrirOverlay(1, 'menu_tabs')">
@@ -1291,7 +1313,7 @@
     </div>
 
 
-    <script src="../scripts/ficha_dados_testes.js"></script>
+    <script src="../scripts/ficha_dados.js"></script>
     <script src="../scripts/ficha_calculos.js"></script>
     <script src="../scripts/ficha_logica.js"></script>
 
